@@ -192,9 +192,10 @@ class _GroupInfoState extends State<GroupInfo> {
           }
         } else {
           return Center(
-              child: CircularProgressIndicator(
-            color: Theme.of(context).primaryColor,
-          ));
+            child: CircularProgressIndicator(
+              color: Theme.of(context).primaryColor,
+            ),
+          );
         }
       },
     );

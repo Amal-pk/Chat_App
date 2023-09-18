@@ -54,19 +54,21 @@ class _ChatPageState extends State<ChatPage> {
         backgroundColor: Theme.of(context).primaryColor,
         actions: [
           IconButton(
-              onPressed: () {
-                nextScreen(
-                    context,
-                    GroupInfo(
-                      groupId: widget.groupId,
-                      groupName: widget.groupName,
-                      adminName: admin,
-                    ));
-              },
-              icon: const Icon(Icons.info))
+            onPressed: () {
+              nextScreen(
+                context,
+                GroupInfo(
+                  groupId: widget.groupId,
+                  groupName: widget.groupName,
+                  adminName: admin,
+                ),
+              );
+            },
+            icon: const Icon(Icons.info),
+          )
         ],
       ),
-      body: Stack(
+      body: Column(
         children: <Widget>[
           // chat messages here
           chatMessages(),
@@ -74,9 +76,12 @@ class _ChatPageState extends State<ChatPage> {
             alignment: Alignment.bottomCenter,
             width: MediaQuery.of(context).size.width,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               width: MediaQuery.of(context).size.width,
-              color: Colors.grey[700],
+              decoration: BoxDecoration(
+                  color: Colors.grey[400],
+                  borderRadius: BorderRadius.circular(10)),
               child: Row(children: [
                 Expanded(
                     child: TextFormField(
@@ -96,15 +101,17 @@ class _ChatPageState extends State<ChatPage> {
                     sendMessage();
                   },
                   child: Container(
-                    height: 50,
-                    width: 50,
+                    height: 35,
+                    width: 35,
                     decoration: BoxDecoration(
+                      // shape: BoxShape.circle,
                       color: Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: const Center(
                         child: Icon(
                       Icons.send,
+                      size: 20,
                       color: Colors.white,
                     )),
                   ),
